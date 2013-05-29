@@ -7,4 +7,14 @@ import scala.reflect.BeanProperty
  * The @BeanProperty annotation is only required if this class
  * is used at JSP view files.
  */
-case class MyModel(@BeanProperty data:String)
+class MyModel {
+	
+	@BeanProperty 
+	var data: String = _
+
+	def this(data: String) {
+		this()
+		this.data = data
+	}
+
+}
