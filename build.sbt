@@ -6,14 +6,21 @@ organization := "six2six"
 
 scalaVersion := "2.10.1"
 
-publishArtifact in packageWar := true
+crossScalaVersions := Seq("2.9.2", "2.10.1")
+
+seq(webSettings :_*)
+
+libraryDependencies += "org.mortbay.jetty" % "jetty" % "6.1.22" % "container"
 
 libraryDependencies ++= Seq(
   "br.com.caelum"           %  "vraptor"               % "3.5.1",
-  "Caelum"					%% "vraptor-scala-plugin"  % "1.1"
+  "Caelum"					%% "vraptor-scala-plugin"  % "1.4"
 )
 
-libraryDependencies += "org.mortbay.jetty" % "jetty" % "6.1.22" % "test->default"
+libraryDependencies += "org.fusesource.scalate" %% "scalate-core" % "1.6.1"
 
-resolvers += "Jetty Repo" at "http://repo1.maven.org/maven2/org/mortbay/jetty"
+resolvers ++= Seq(
+  "Local Maven Repository" at "file:///"+ Path.userHome +"/.m2/repository"
+)
 
+EclipseKeys.withSource := true
