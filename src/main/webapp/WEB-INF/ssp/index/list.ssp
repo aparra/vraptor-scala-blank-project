@@ -1,17 +1,10 @@
-<html>
-<head>
-<title>VRaptor + Scala (List Example)</teste>
-</head>
-<body>
+<% attributes("layout") = "/WEB-INF/ssp/layouts/custom.ssp" %>
+<% attributes("title") = "VRaptor + Scala (List Example)" %>
+
 <%@ val stringList : List[String] %>
 
 <ul>
-#for (each <- stringList)
-	<li>${each}</li>
+#for (value <- stringList)
+	<li>${value}</li>
 #end
 </ul>
-
-
-</ul>
-</body>
-</html>

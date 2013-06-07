@@ -1,21 +1,19 @@
 package br.com.caelum.vraptor.scala
-import br.com.caelum.vraptor.{Path, Get, Post, Resource};
 
-/*
- * A simple example controller.
- */
+import br.com.caelum.vraptor.{ Get, Post, Resource };
+
 @Resource
 class IndexController {
 
-	@Get @Path(Array("/"))
-	def index = new MyModel("It works!") 
-	
-	@Post @Path(Array("/"))
-	def index(myModel:MyModel) = myModel
-		
-	@Get @Path(Array("/jsp"))
-	def jsp = new MyModel("It works with JSP too!")
-	
-	@Get @Path(Array("/list"))
-	def list = List("It", "works", "with", "lists")
+  @Get(Array("/"))
+  def index = new MyModel("It works!")
+
+  @Post(Array("/"))
+  def index(myModel: MyModel) = myModel
+
+  @Get(Array("/jsp"))
+  def jsp = new Model2Jsp("It works with JSP too!")
+
+  @Get(Array("/list"))
+  def list = List("It", "works", "with", "lists")
 }
